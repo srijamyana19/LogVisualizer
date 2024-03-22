@@ -1,0 +1,165 @@
+ <html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+		<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+		<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+     	<meta charset="UTF-8">
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    	<script src="https://d3js.org/d3.v4.js"></script>
+    	<script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+	</head>
+	<body onload="initViz();">
+		<div class="container">
+		<div class="toppane">
+			<div class="row">
+				<div class="column left_nav">
+					<div class="sidebar close">
+					    <div class="logo-details">
+					      <i style="font-size:24px" class="fa">&#xf201;</i>
+					      <span class="logo_name"><a href="index.html" style="text-decoration:none; color: #fff;">Log Visualizer</a></span>
+					    </div>
+					    <ul class="nav-links">
+					      <li>
+					        <div class="iocn-link">
+					          <a href="#">
+					            <i class='bx bx-collection' ></i>
+					            <span class="link_name">DataSet</span>
+					          </a>
+					          <i class='bx bxs-chevron-down arrow' ></i>
+					        </div>
+					        <ul class="sub-menu">
+					          <li><a class="link_name" href="#">DataSet</a></li>
+					          <li><a href="https://visualizer.w3spaces.com/">Arms Dealing</a></li>
+					          <li><a href="https://visualizer.w3spaces.com/index2_dataset2.html">Terrorist</a></li>
+					          <li><a href="https://visualizer.w3spaces.com/index2_dataset3.html">Disappearance</a></li>
+					        </ul>
+					      </li>
+					      <!-- <li>
+					        <div class="iocn-link">
+					          <a href="#">
+					            <i class='fas'>&#xf406;</i>
+					            <span class="link_name">Users</span>
+					          </a>
+					          <i class='bx bxs-chevron-down arrow' ></i>
+					        </div>
+					        <ul class="sub-menu">
+					          <li><a class="link_name" href="#">Users</a></li>
+					          <li><a href="#">User1</a></li>
+					          <li><a href="#">User2</a></li>
+					          <li><a href="#">User3</a></li>
+					          <li><a href="#">User4</a></li>
+					          <li><a href="#">User5</a></li>
+					          <li><a href="#">User6</a></li>
+					          <li><a href="#">User7</a></li>
+					          <li><a href="#">User8</a></li>
+					        </ul>
+					      </li> -->
+					</ul>
+					  </div>
+					  <section class="home-section">
+					    <div class="home-content">
+					      <svg id="hamburger" class="ham hamRotate ham4" viewBox="0 0 100 100" width="50" onclick="this.classList.toggle('active')">
+					  <path
+					        class="line top"
+					        d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+					  <path
+					        class="line middle"
+					        d="m 70,50 h -40" />
+					  <path
+					        class="line bottom"
+					        d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+					</svg>
+					    </div>
+					  </section>
+					  <script>
+					  let arrow = document.querySelectorAll(".arrow");
+					  for (var i = 0; i < arrow.length; i++) {
+					    arrow[i].addEventListener("click", (e)=>{
+					   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+					   arrowParent.classList.toggle("showMenu");
+					    });
+					  }
+					  let sidebar = document.querySelector(".sidebar");
+					  let sidebarBtn = document.querySelector("#hamburger");
+					  let mainSpace = document.querySelector("body.container.middlepane");
+					  console.log(sidebarBtn);
+					  sidebarBtn.addEventListener("click", ()=>{
+					    sidebar.classList.toggle("close");
+					    mainSpace.css({
+					    	'left':'270 px'
+					    });
+					  });
+					  </script>
+      				</div>
+			</div>
+				</div>
+		<div class="rightpane" hidden>
+			<h1>Right Pane</h1>
+		</div>
+		<div class="middlepane" style="padding-left: 100px;">
+			<div class="container">
+				<div id="bar_chart">
+					<div id="vizContainer" style="width:800px; height:700px;"></div>
+					<script type="text/javascript">
+						var viz = new tableau.Viz( /* params omitted */ );
+						function initViz() {
+      var containerDiv = document.getElementById("vizContainer"),
+          url = "https://public.tableau.com/views/IntegratedDataset-1_24_1/Dashboard4?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link",
+          options = {
+            hideTabs: true,
+            onFirstInteractive: function () {
+            console.log("Run this code when the viz has finished loading.");
+            }
+          };
+
+      var viz = new tableau.Viz(containerDiv, url, options);
+      // Create a viz object and embed it in the container div. 
+      }
+					</script>
+				</div>
+				<!-- <div class='tableauPlaceholder' id='viz1669661634288' style='position: relative'>
+					<noscript>
+						<a href='#'>
+							<img alt='Dashboard 1 ' src='https://public.tableau.com/views/IntegratedDataset1/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link' style='border: none' />
+						</a>
+					</noscript>
+					<object class='tableauViz'  style='display:none;'>
+						<param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+						<param name='embed_code_version' value='3' /> 
+						<param name='site_root' value='' />
+						<param name='name' value='IntegratedDataset1&#47;Dashboard1' />
+						<param name='tabs' value='no' />
+						<param name='toolbar' value='yes' />
+						<param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;IntegratedDataset1&#47;Dashboard1&#47;1.png' /> 
+						<param name='animate_transition' value='yes' />
+						<param name='display_static_image' value='yes' />
+						<param name='display_spinner' value='yes' />
+						<param name='display_overlay' value='yes' />
+						<param name='display_count' value='yes' />
+						<param name='language' value='en-US' />
+						<param name='filter' value='publish=yes' />
+					</object>
+					</div>                
+						<script type='text/javascript'>                    
+							var divElement = document.getElementById('viz1669661634288');                    
+							var vizElement = divElement.getElementsByTagName('object')[0];                    
+							
+							if ( divElement.offsetWidth > 800 ) { 
+								vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+							} else if ( divElement.offsetWidth > 500 ) { 
+								vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+							} else { 
+								vizElement.style.width='100%';vizElement.style.height='727px';
+							}                     
+							
+							var scriptElement = document.createElement('script');                    
+							scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+							vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+				</script>
+			</div> -->
+		</div>
+	</div>
+	</body>
+</html>
